@@ -2,11 +2,10 @@ import ytdl from "ytdl-core";
 
 export default async function handler(req, res) {
    const { params } = req.query;
-   // console.log(params[params.length - 1]);
+   console.log(params);
 
-   const vidUrl = params[params.length - 1];
-   const vidInfo = await ytdl.getBasicInfo(vidUrl);
-   const vidFormat = await ytdl.getInfo(vidUrl);
+   const vidInfo = await ytdl.getBasicInfo(params);
+   const vidFormat = await ytdl.getInfo(params);
    const { videoDetails } = vidInfo;
 
    const { formats } = vidFormat;
